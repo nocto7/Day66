@@ -125,7 +125,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         balloons.append(balloon)
         addChild(balloon)
-        print("added a \(randomColour) balloon with zPosition \(balloon.zPosition)")
     }
     
 
@@ -147,13 +146,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let tappedNodes = nodes(at: location)
         
         for node in tappedNodes {
-            print("hit something \(String(describing: node.name))")
             if let nodeName = node.name {
-                if nodeName == "window" {
-                    print ("smashed the window")
-                }
                 if balloonColours.contains(nodeName) {
-                    print("hit a \(nodeName) balloon")
                     if let pop = SKEmitterNode(fileNamed: "pop") {
                         pop.position = node.position
                         
