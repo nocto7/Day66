@@ -147,7 +147,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         for node in tappedNodes {
             if let nodeName = node.name {
-                if balloonColours.contains(nodeName) {
+                if balloonColours.contains(nodeName) && !gameOver {
                     if let pop = SKEmitterNode(fileNamed: "pop") {
                         pop.position = node.position
                         
@@ -171,7 +171,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     node.removeFromParent()
                     score += 5
                 }
-                if nodeName == "playagain" {
+                if nodeName == "playagain" && gameOver {
                     playAgainLabel.text = ""
                     startGame()
                 }
