@@ -9,7 +9,7 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene, SKPhysicsContactDelegate {
+class GameScene: SKScene {
     
     var balloonColours = ["pink", "yellow", "white"]
     var possibleBitMasks = [2,4,8,16,32,64]
@@ -78,7 +78,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(timerLabel)
         
         physicsWorld.gravity = .zero
-        physicsWorld.contactDelegate = self
         
         startGame()
     }
